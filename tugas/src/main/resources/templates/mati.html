@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Penduduk Nonaktif</title>
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css"></link>
+		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<script src="/js/datatable.js"></script>
+		<script src="/js/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/css/main.css"/>
+		<script src="/js/jquery.js"></script>
+		<link rel="stylesheet" href="/css/jquery-ui.css"/>
+		<script src="/js/jquery-1.10.2.js"></script>
+		<script src="/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" href="/css/main.css"/>
+		
+		
+	</head>
+	<body>
+	
+	<div th:replace="fragments/fragment :: header"></div>
+	<hr/>
+	
+	<h3 th:text="'Penduduk dengan NIK ' + ${nik} + ' berhasil dinonaktifkan'">Data berhasil ditambahkan</h3>
+	<h3 th:text="'Penduduk dengan NIK ' + ${nik} + ' telah nonaktif'">Data berhasil ditambahkan</h3>
+	<h3>Jika Anda menemui halaman ini maka penduduk atau keluarga yang Anda ingin ubah sudah nonaktif</h3>
+	<div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>

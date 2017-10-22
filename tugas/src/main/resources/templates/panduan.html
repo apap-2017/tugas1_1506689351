@@ -1,0 +1,65 @@
+<html>
+	<head xmlns:th="http://www.thymeleaf.org">
+		<title>Panduan</title>
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css"></link>
+		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<script src="/js/datatable.js"></script>
+		<script src="/js/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/css/main.css"/>
+		<script src="/js/jquery.js"></script>
+		<link rel="stylesheet" href="/css/jquery-ui.css"/>
+		<script src="/js/jquery-1.10.2.js"></script>
+		<script src="/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+		
+	</head>
+	<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	<br/><br/>
+	
+	<div class= "container">
+		<div class="main">
+			<h1>Selamat datang di panduan SIDUK DKI Jakarta!</h1>
+			
+		</div>	
+		<div class="container-fluid">
+						
+			<div>
+				<div id="tentang">
+					
+					<h4>Untuk menambahkan penduduk, silahkan pilih 'Tambah Penduduk' pada navbar</h4>
+					<h4>Untuk menambahkan keluarga, silahkan pilih 'Tambah Keluarga' pada navbar</h4>
+				
+				</div>
+				<div id="ubah">
+					<h4>Untuk mengubah penduduk atau keluarga, silahkan cari terlebih dahulu
+					objek yang akan diubah, lalu tekan tombol 'Update Data'</h4>
+				</div>
+				<div id="cari">
+					<h4>Untuk mencari penduduk atau keluarga, silahkan cari pada kolom yanng sesuai di
+					laman utama</h4>
+				</div>
+				<div id="format">
+					<h4>Jika Anda menemukan masalah pada format dan tidak bisa mengubah, mencari atau menambah,
+					maka ada beberapa hal yang harus diperhatikan:</h4>
+					<h5>1. Cek apakah semua field sudah terisi dengan benar</h5>
+					<h5>2. Cek apakah data tercatat pada database</h5>
+					<h5>2. Cek apakah data yang diisi sesuai format yang diminta</h5>
+				</div>
+				
+			</div>
+		</div>
+		<br/><br/><br/>
+		<div>
+			<h4>Jika masalah Anda belum terjawab pada panduan ini, silahkan hubungi kontak yang ada di
+			bagian bawah laman ini</h4>
+		</div>
+	</div>
+	
+	<div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>

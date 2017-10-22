@@ -1,0 +1,23 @@
+<html>
+	<head xmlns:th="http://www.thymeleaf.org">
+		<title>Data Bermasalah</title>
+		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	</head>
+	<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	<br/><br/>
+	<div class= "container main">
+		<div class="row col-sm-4">
+			<h2>Maaf, data yang dimasukkan salah atau tidak terdapat dalam daftar kami. Silahkan dicek kembali</h2>
+		</div>
+	</div>
+	<br/><br/>
+	<div class= "container">
+		<div class="row">
+			<h4>Untuk mengetahui format pengisian yang tepat, silahkan buka link panduan</h4>
+			<a href="/panduan"></a>
+		</div>
+	</div>
+	<div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>

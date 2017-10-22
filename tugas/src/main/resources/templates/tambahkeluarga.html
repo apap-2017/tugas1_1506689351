@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Tambah Keluarga</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css"></link>
+		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<script src="/js/datatable.js"></script>
+		<script src="/js/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/css/main.css"/>
+		<script src="/js/jquery.js"></script>
+		<link rel="stylesheet" href="/css/jquery-ui.css"/>
+		<script src="/js/jquery-1.10.2.js"></script>
+		<script src="/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" href="/css/main.css"/>
+					
+		<script>
+		    $(function(){
+		        
+		         $('input[type="date"]').datepicker({ 
+		        	 dateFormat: 'yy-mm-dd' });
+		    });
+		</script>
+</head>
+
+<body>
+<div th:replace="fragments/fragment :: header"></div>
+<div class= "container">	
+	<div class="row main">
+		<div class="main-login main-center">
+			<form action="/keluarga/tambah" method="post" th:object ="${keluarga}">
+				<div class="form-group">
+					<label for="alamat">Alamat</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group"> 
+						<input type="text" name="alamat" th:field="*{alamat}"/>
+					</div>
+				</div>
+				<br/><br/>
+				<div class= "form-group">
+					<label for="RT">RT</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group"> 
+						<input type="text" name="RT" th:field="*{RT}"/>
+					</div>
+				</div>
+				<br/><br/>
+				<div class= "form-group">
+					<label for="RW">RW</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group">
+						<input type="text" name="RW" th:field="*{RW}"/>
+					</div>
+				</div>
+				<br/><br/>
+				<div class= "form-group">
+					<label for="id_kelurahan">Kelurahan</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group">
+						 <select class="selectpicker" name="id_kelurahan">
+						 							    						    
+						    <option th:each="lurah,iterationStatus: ${kelurahan}" th:value="${lurah.id}" th:text="${lurah.nama_kelurahan}"></option>						    						 
+						 </select>
+					</div>
+				</div>
+				<br/><br/>
+				<div>
+					<button type="submit" name="action" value="save" class="btn btn-primary btn-lg btn-block login-button">Tambah Keluarga</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div th:replace="fragments/fragment :: footer"></div>
+</body>
+
+</html>
+
+
+

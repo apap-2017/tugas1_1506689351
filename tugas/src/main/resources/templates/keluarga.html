@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Lihat Keluarga</title>
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css"></link>
+		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<script src="/js/datatable.js"></script>
+		<script src="/js/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/css/main.css"/>
+		<script src="/js/jquery.js"></script>
+		<link rel="stylesheet" href="/css/jquery-ui.css"/>
+		<script src="/js/jquery-1.10.2.js"></script>
+		<script src="/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" href="/css/main.css"/>
+		
+		
+	</head>
+<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	
+	<div class="card">
+	  	 
+	  <div class="row">
+	    <div class="col" th:text="'NKK'"></div>
+	    <div class="col" th:text="${keluarga.nomor_kk}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Alamat'"></div>
+	    <div class="col" th:text="${keluarga.alamat}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'RT/RW'"></div>
+	    <div class="col" th:text="${keluarga.RT} + '/' + ${keluarga.RW}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Kelurahan/Desa'"></div>
+	    <div class="col" th:text="${keluarga.lurah.nama_kelurahan}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Kecamatan'"></div>
+	    <div class="col" th:text="${keluarga.lurah.camat.nama_kecamatan}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Kota'"></div>
+	    <div class="col" th:text="${keluarga.lurah.camat.kota.nama_kota}"></div>
+	  </div>
+	</div>
+	  <div>
+            <table id="myTable" class="display">
+	            <thead>
+	            <tr>
+		            <th>No</th>
+			       	<th>Nama Lengkap</th>
+			       	<th>NKK</th>
+			       	<th>Jenis Kelamin</th>
+			       	<th>Tempat Lahir</th>
+			    	<th>Tanggal Lahir</th>
+			    	<th>Agama</th>
+			    	<th>Pekerjaan</th>
+			    	<th>Status Perkawinan</th>
+			    	<th>Status dalam Keluarga</th>
+			    	<th>Kewarganegaraan</th>
+		       	</tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="anggota,iterationStatus: ${keluarga.anggota}">
+		            <th th:text="${iterationStatus.count}">No. 1</th>
+			       	<th th:text="${anggota.nama}">Student NPM</th>
+			       	<th th:text="${anggota.nik}">Student Name</th>
+			       	<th th:text="${anggota.jenis_kelamin}==0? 'Laki-laki' : 'Perempuan'">Student NPM</th>
+			       	<th th:text="${anggota.tempat_lahir}">Student Name</th>
+			       	<th th:text="${anggota.tanggal_lahir}">Student Name</th>
+			       	<th th:text="${anggota.agama}">Student Name</th>
+			       	<th th:text="${anggota.pekerjaan}">Student Name</th>
+			       	<th th:text="${anggota.status_perkawinan}">Student Name</th>
+			       	<th th:text="${anggota.status_dalam_keluarga}">Student Name</th>
+			       	<th th:text="${anggota.is_wni == 1}? 'WNI' : 'WNA'"></th>
+				    
+		       	</tr>
+		       	</tbody>
+	       	</table>
+	       	<hr/>
+       	</div>
+    	
+    	<div>
+			<a class="btn btn-primary" th:href="'/keluarga/ubah/' + ${keluarga.nomor_kk}">Update Data</a>
+		</div>
+	
+	<div th:replace="fragments/fragment :: footer"></div>
+</body>
+
+</html>
+

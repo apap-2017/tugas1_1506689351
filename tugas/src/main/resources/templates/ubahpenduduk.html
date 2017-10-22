@@ -1,0 +1,209 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>Ubah Penduduk</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css"></link>
+		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<script src="/js/datatable.js"></script>
+		<script src="/js/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+		<script src="/js/jquery.js"></script>
+		<link rel="stylesheet" href="/css/jquery-ui.css"/>
+		<script src="/js/jquery-1.10.2.js"></script>
+		<script src="/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" href="/css/main.css"/>
+		
+		
+		<script>
+		    $(function(){
+		        
+		         $('input[type="date"]').datepicker({ 
+		        	 dateFormat: 'yy-mm-dd' });
+		    });
+		</script>
+		
+	</head>
+	<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	<div class= "container">	
+	<div class="row main">
+		<div class="main-login main-center">
+			<form th:action="@{/penduduk/ubah/} + ${nik}" method="post" th:object ="${penduduk}">
+				
+				<div class="cols-sm-8">
+					<div class="input-group">
+						 <input type="hidden" name="nik" th:value="${penduduk.nik}" th:field="*{nik}"/>
+					</div>
+				</div>
+				
+				<div class="cols-sm-8">
+					<div class="input-group">
+						 <input type="hidden" name="id" th:value="${penduduk.id}" th:field="*{id}"/>
+					</div>
+				</div>
+				
+				<div class="cols-sm-8">
+					<div class="input-group">
+						 <input type="hidden" name="is_wafat" th:value="${penduduk.is_wafat}" th:field="*{is_wafat}"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="nama">Masukkan nama</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group"> 
+						<input type="text" name="nama" th:value="${penduduk.nama}" th:field="*{nama}"/>
+					</div>
+				</div>
+				<br/><br/>
+				<div class="form-group">
+					<label for="jenis_kelamin">Jenis Kelamin</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group">  
+						 <select class="selectpicker" th:field="*{jenis_kelamin}">
+						    <option th:value="${penduduk.jenis_kelamin}" th:text="${penduduk.jenis_kelamin == 1}? 'Perempuan' : 'Laki-laki'"></option>
+						    <option value="0">Laki-laki</option>
+						    <option value="1">Perempuan</option>			
+						  </select>
+					</div>
+				</div>
+				<br/><br/>
+				<div class= "form-group">
+					<label for="tempat_lahir">Tempat Lahir</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group"> 
+						<input type="text" name="tempat_lahir" th:field="*{tempat_lahir}"/>
+					</div>
+				</div>
+				<br/><br/>
+				<div class= "form-group">
+					<label for="tanggal_lahir">Tanggal Lahir</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group">
+						<input type="date" name="tanggal_lahir" max="2017-12-31" min="1920-01-01" th:field="*{tanggal_lahir}"/>
+					</div>
+				</div>
+				<br/><br/>
+				<div class= "form-group">
+					<label for="golongan_darah">Golongan Darah</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group">
+						 <select class="selectpicker" th:field="*{golongan_darah}">						  
+						 	<option th:value="${penduduk.golongan_darah}" th:text="${penduduk.golongan_darah}"></option>  
+						    <option value="A-">A-</option>
+						    <option value="B-">B-</option>						 
+						    <option value="AB">AB</option>
+						    <option value="A+">A+</option>
+						    <option value="B+">B+</option>
+						    <option value="O">O</option>
+						  </select>
+					</div>
+				</div>
+				<br/><br/>
+				<div class="form-group">
+					<label for="agama">Agama</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group">  
+						<select class="selectpicker" th:field="*{agama}">
+							<option th:value="${penduduk.agama}" th:text="${penduduk.agama}"></option>
+						    <option value="Islam">Islam</option>
+						    <option value="Kristen Protestan">Kristen Protestan</option>
+						    <option value="Katolik">Katolik</option>
+						    <option value="Hindu">Hindu</option>
+						    <option value="Buddha">Buddha</option>
+						    <option value="Kong Hu Cu">Kong Hu Cu</option>			
+						</select>
+					</div>
+				</div>
+				<br/><br/>
+				<div class="form-group">
+					<label for="status_perkawinan">Status Perkawinan</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group">
+						<select class="selectpicker" th:field="*{status_perkawinan}">
+							<option th:value="${penduduk.status_perkawinan}" th:text="${penduduk.status_perkawinan}"></option>
+						    <option value="Kawin">Kawin</option>
+						    <option value="Belum Kawin">Belum Kawin</option>
+						    <option value="Cerai Mati">Cerai Mati</option>
+						    <option value="Cerai Hidup">Cerai Hidup</option>			
+					  	</select>
+					</div>
+				</div>
+				<br/><br/>
+				<div class= "form-group">
+					<label for="pekerjaan">Pekerjaan</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group">  
+						<input type="text" name="pekerjaan" th:field="*{pekerjaan}"/>
+					</div>
+				</div>
+				<br/><br/>
+				<div class= "form-group">
+					<label for="is_wni">Kewarganegaraan</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group">
+						<select class="selectpicker" th:field="*{is_wni}">
+							<option th:value="${penduduk.is_wni}" th:text="${penduduk.is_wni==1}? 'WNI': 'WNA'"></option>
+						    <option value="0">WNA</option>
+						    <option value="1">WNI</option>			
+						 </select>
+					</div>
+				</div>
+				<br/><br/>
+				<div class = "form-group">
+					<label for="status_dalam_keluarga">Status Dalam Keluarga</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group">
+						<select class="selectpicker" th:field="*{status_dalam_keluarga}">
+							<option th:value="${penduduk.status_dalam_keluarga}" th:text="${penduduk.status_dalam_keluarga}"></option>													  
+						    <option value="Kepala Keluarga">Kepala Keluarga</option>
+						    <option value="Suami">Suami</option>						 
+						    <option value="Istri">Istri</option>
+						    <option value="Anak">Anak</option>
+						    <option value="Menantu">Menantu</option>
+						    <option value="Cucu">Cucu</option>
+						    <option value="Orangtua">Orangtua</option>						 
+						    <option value="Mertua">Mertua</option>
+						    <option value="Famili Lain">Famili Lain</option>
+						    <option value="Pembantu">Pembantu</option>
+						    <option value="Lainnya">Lainnya</option>
+						 </select>
+					</div>
+				</div>
+				<br/><br/>
+				<div class = "form-group">
+					<label for="id_keluarga">Id Keluarga</label>
+				</div>
+				<div class="cols-sm-8">
+					<div class="input-group"> 
+						<input type="number" name="id_keluarga" th:field="*{id_keluarga}"/>
+					</div>
+				</div>
+				<br/><br/>
+				
+				<div>
+					<button type="submit" name="action" value="save" class="btn btn-primary btn-lg btn-block login-button">Ubah Penduduk</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>

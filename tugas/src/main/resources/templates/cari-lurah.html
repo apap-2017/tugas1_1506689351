@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Cari Lurah</title>
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css"></link>
+		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<script src="/js/datatable.js"></script>
+		<script src="/js/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/css/main.css"/>
+		<script src="/js/jquery.js"></script>
+		<link rel="stylesheet" href="/css/jquery-ui.css"/>
+		<script src="/js/jquery-1.10.2.js"></script>
+		<script src="/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" href="/css/main.css"/>
+		
+		
+	</head>
+<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	<div class="container">
+		<h1 th:text="'List Penduduk ' + ${lkota.nama_kota}+ ', ' + ${kecamatans.nama_kecamatan} + ', ' + ${kelurahans.nama_kelurahan}"></h1>
+	</div>
+	<br/><br/>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h4>Penduduk Termuda</h4>
+				<h5 th:text="'NIK: ' + ${muda.nik}"></h5>
+				<h5 th:text="'Nama lengkap: ' + ${muda.nama}"></h5>			
+				<h5 th:text="'TTL: ' + ${muda.tempat_lahir} + ', ' + ${muda.tanggal_lahir} "></h5>
+			</div>
+			<div class="col">
+				<h4>Penduduk Tertua</h4>
+				<h5 th:text="'NIK: ' + ${tua.nik}"></h5>
+				<h5 th:text="'Nama lengkap: ' + ${tua.nama}"></h5>			
+				<h5 th:text="'TTL: ' + ${tua.tempat_lahir} + ', ' + ${tua.tanggal_lahir} "></h5>
+			</div>
+		</div>
+	</div>
+	<br/><br/>
+	<div>
+            <table id="myTable" class="display">
+	            <thead>
+	            <tr>
+		            <th>NIK</th>
+			       	<th>Nama Lengkap</th>			     
+			       	<th>Jenis Kelamin</th>
+			       	
+		       	</tr>
+	            </thead>
+	            <tbody>
+	            
+	            <tr th:each="keluarga,iterationStatus: ${keluargas}">
+			       	<th th:text="${keluarga.nik}"></th>
+			       	<th th:text="${keluarga.nama}"></th>
+			       	<th th:text="${keluarga.jenis_kelamin}==0? 'Laki-laki' : 'Perempuan'"></th>			       	
+		       	</tr>
+		       	
+		       	</tbody>
+	       	</table>
+	       	<hr/>
+       	</div>
+	
+		
+	<div th:replace="fragments/fragment :: footer"></div>
+</body>
+
+</html>
+

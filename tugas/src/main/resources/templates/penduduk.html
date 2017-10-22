@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Penduduk</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css"></link>
+		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<script src="/js/datatable.js"></script>
+		<script src="/js/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/css/main.css"/>
+		<script src="/js/jquery.js"></script>
+		<link rel="stylesheet" href="/css/jquery-ui.css"/>
+		<script src="/js/jquery-1.10.2.js"></script>
+		<script src="/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" href="/css/main.css"/>
+		
+		
+	</head>
+
+<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	
+	<div class="card">
+	  <div class="row">
+	    <div class="col" th:text="'NIK'"></div>
+	    <div class="col" th:text="${penduduk.nik}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Nama'"></div>
+	    <div class="col" th:text="${penduduk.nama}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Tempat/Tanggal Lahir'"></div>
+	    <div class="col" th:text="${penduduk.tempat_lahir} + ', ' + ${penduduk.tanggal_lahir}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Alamat'"></div>
+	    <div class="col" th:text="${penduduk.keluarga.alamat}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'RT/RW'"></div>
+	    <div class="col" th:text="${penduduk.keluarga.RT} + '/' + ${penduduk.keluarga.RW}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Kelurahan/Desa'"></div>
+	    <div class="col" th:text="${penduduk.keluarga.lurah.nama_kelurahan}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Kecamatan'"></div>
+	    <div class="col" th:text="${penduduk.keluarga.lurah.camat.nama_kecamatan}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Kota'"></div>
+	    <div class="col" th:text="${penduduk.keluarga.lurah.camat.kota.nama_kota}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Golongan Darah'"></div>
+	    <div class="col" th:text="${penduduk.golongan_darah}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Agama'"></div>
+	    <div class="col" th:text="${penduduk.agama}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Status Perkawinan'"></div>
+	    <div class="col" th:text="${penduduk.status_perkawinan}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Pekerjaan'"></div>
+	    <div class="col" th:text="${penduduk.pekerjaan}"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Kewarganegaraan'"></div>
+	    <div class="col" th:text="${penduduk.is_wni == 1}? 'WNI' : 'WNA'"></div>
+	  </div>
+	  <div class="row">
+	    <div class="col" th:text="'Status Kematian'"></div>
+	    <div class="col" id="statmat" th:text="${penduduk.is_wafat == 1}? 'Wafat' : 'Hidup'"></div></div>
+	  </div>
+	
+
+	<div id="takbisaubah">
+		<a class="btn btn-primary" th:href="'/penduduk/ubah/' + ${penduduk.nik}">Update Data</a>
+	</div>
+	<div id="wafatsudah">	
+		<a class="btn btn-danger" th:href="'/penduduk/mati/' + ${penduduk.nik}">Nonaktifkan</a>
+	</div>
+	
+	
+	<div th:replace="fragments/fragment :: footer"></div>
+</body>
+
+</html>
+
